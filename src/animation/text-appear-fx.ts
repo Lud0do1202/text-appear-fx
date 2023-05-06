@@ -8,7 +8,7 @@ export class TextAppearFX {
     }
 
     /** TURNAROUND *****************/
-    turnaround(nbTurn : number, duration : number, timeout: number): void {
+    turnaround(nbTurn: number, duration: number, timeout: number): void {
         // Set an height for the element
         this.element.style.height = '1em';
         this.element.innerText = '';
@@ -36,7 +36,7 @@ export class TextAppearFX {
                 const letterTimeout = timeout * i;
 
                 // Set the letter into the span
-                setTimeout(() => (letterSpan.style.opacity = '1'), (letterTimeout + 50));
+                setTimeout(() => (letterSpan.style.opacity = '1'), letterTimeout + 50);
 
                 // Add animation
                 letterSpan.animate(
@@ -57,5 +57,31 @@ export class TextAppearFX {
         }
     }
 
+    /** RACE *****************/
+    race(duration: number) {
+        const skew = 35;
 
+        // Translation
+        this.element.animate(
+            [
+                { transform: `translateX(-100%) skew(${skew}deg)`, opacity: '0' },
+                { opacity: '1' },
+                { transform: `translateX(0%) skew(${skew}deg)` },
+            ],
+            {
+                duration: duration,
+                iterations: 1,
+            }
+        );
+
+        // Repositioning
+        this.element.animate(
+            [{ transform: `skew(${skew}deg)` }, { transform: `skew(${-skew}deg)` }, { transform: `skew(0deg)` }],
+            {
+                duration: 200,
+                iterations: 1,
+                delay: duration,
+            }
+        );
+    }
 }
