@@ -1,0 +1,35 @@
+{
+  "name": "text-appear-fx",
+  "version": "1.0.0",
+  "description": "Animation of a text when it's appearing",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lud0do1202/text-appear-fx"
+  },
+  "bugs": {
+    "url": "https://github.com/Lud0do1202/text-appear-fx/issues"
+  },
+  "homepage": "https://github.com/Lud0do1202/text-appear-fx#readme",
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "library",
+    "javascript",
+    "typescript",
+    "animation",
+    "fx",
+    "text",
+    "apparition"
+  ],
+  "author": "Lud0do1202 (TRAINA Ludo)",
+  "license": "MIT"
+}
