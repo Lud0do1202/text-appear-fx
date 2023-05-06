@@ -563,7 +563,7 @@ const turnaround = new (0, _textAppearFx.TextAppearFX)(turnaroundElement);
 turnaround.turnaround(2, 1000, 50);
 const raceElement = document.querySelector("#race");
 const race = new (0, _textAppearFx.TextAppearFX)(raceElement);
-race.race(200);
+race.race(200, "left");
 const glitchElement = document.querySelector("#glitch");
 const glitch = new (0, _textAppearFx.TextAppearFX)(glitchElement);
 glitch.glitch(100);

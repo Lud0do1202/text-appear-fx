@@ -1,6 +1,6 @@
 {
   "name": "text-appear-fx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Animation of a text when it's appearing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

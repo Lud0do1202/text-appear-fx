@@ -1,19 +1,44 @@
+/**
+ * Apply animation to some texts
+ *
+ * @author Lud0do1202 (Traina Ludo)
+ */
 export class TextAppearFX {
     private element: HTMLElement;
     private text: string;
 
+    /**
+     * Create a new instance of TextAppearFX
+     *
+     * @param element The element containing the text
+     */
     constructor(element: HTMLElement) {
+        // Check args
+        if (!(element instanceof HTMLElement))
+            throw new Error('TEXT_APPEAR_FX\nelement arg must be an instance of HTMLElement');
+
         this.element = element;
-        this.text = this.element.innerText;
+        this.text = this.element.textContent;
     }
 
-    /** TURNAROUND *****************/
-    turnaround(nbTurn: number, duration: number, timeout: number): void {
+    /**
+     * Each letter turns on them-self
+     *
+     * @param numberOfTurns The number of turns
+     * @param duration The duration for making the turns
+     * @param timeout The timeout between letters
+     */
+    turnaround(numberOfTurns: number, duration: number, timeout: number): void {
+        // Check args
+        if (typeof numberOfTurns !== 'number') throw new Error('TURNAROUND\nnumberOfTurns arg must be a number');
+        else if (typeof duration !== 'number') throw new Error('TURNAROUND\nduration arg must be a number');
+        else if (typeof timeout !== 'number') throw new Error('TURNAROUND\ntimeout arg must be a number');
+
         // Set an height for the element
         this.element.style.height = '1em';
 
         // Remove the text
-        this.element.innerText = '';
+        this.element.textContent = '';
 
         // Transform all letters into a <span>
         for (let i = 0; i < this.text.length; i++) {
@@ -24,7 +49,7 @@ export class TextAppearFX {
             const letterSpan = document.createElement('span');
 
             // Set the letter
-            letterSpan.innerText = letter;
+            letterSpan.textContent = letter;
 
             // Opacity
             letterSpan.style.opacity = '0';
@@ -44,7 +69,7 @@ export class TextAppearFX {
                 letterSpan.animate(
                     [
                         { scale: 0, transform: 'rotate(0deg)' },
-                        { scale: 1, transform: `rotate(${nbTurn * 360}deg)` },
+                        { scale: 1, transform: `rotate(${numberOfTurns * 360}deg)` },
                     ],
                     {
                         duration: duration,
@@ -59,14 +84,23 @@ export class TextAppearFX {
         }
     }
 
-    /** RACE *****************/
-    race(duration: number) {
-        const skew = 35;
+    /**
+     * The text come from the left with a fast effect
+     *
+     * @param duration The duration of the animation
+     */
+    race(duration: number, side: 'left' | 'right') {
+        // Check args
+        if (typeof duration !== 'number') throw new Error('RACE\nduration arg must be a number');
+        else if (side !== 'left' && side !== 'right') throw new Error("RACE\nside arg must be a 'left' or 'right'");
+
+        const skew = side === 'left' ? 35 : -35;
+        const defaultTranslate = side === 'left' ? -100 : 100;
 
         // Translation
         this.element.animate(
             [
-                { transform: `translateX(-100%) skew(${skew}deg)`, opacity: '0' },
+                { transform: `translateX(${defaultTranslate}%) skew(${skew}deg)`, opacity: '0' },
                 { opacity: '1' },
                 { transform: `translateX(0%) skew(${skew}deg)` },
             ],
@@ -87,8 +121,15 @@ export class TextAppearFX {
         );
     }
 
-    /** GLITCH **************************/
-    glitch(timeout : number) {
+    /**
+     * The text appear letter by letter randomly with a glitch effect
+     *
+     * @param timeout The timeout between letters
+     */
+    glitch(timeout: number) {
+        // Check args
+        if (typeof timeout !== 'number') throw new Error('GLITCH\ntimeout arg must be a number');
+
         // Set an height for the element
         this.element.style.height = '1em';
 
@@ -113,7 +154,7 @@ export class TextAppearFX {
             const letterSpan = document.createElement('span');
 
             // Set the letter into the span
-            letterSpan.innerText = letter;
+            letterSpan.textContent = letter;
 
             // Bug animation
             letterSpan.style.opacity = '0';
