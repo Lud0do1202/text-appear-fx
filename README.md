@@ -24,5 +24,5 @@ tafx.glitch(50)
 - turnaround
 - race
 - glitch
-[![Alt text](https://img.youtube.com/vi/l-00gNBDjLQ/0.jpg)](https://www.youtube.com/watch?v=l-00gNBDjLQ)
 
+![Vidéo sans titre ‐ Réalisée avec Clipchamp](https://user-images.githubusercontent.com/110570511/236645131-a939c7a0-5b38-459f-be62-32712a208967.gif)
