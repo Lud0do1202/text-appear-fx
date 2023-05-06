@@ -7,3 +7,7 @@ turnaround.turnaround(2, 1000, 50)
 const raceElement = document.querySelector('#race');
 const race = new TextAppearFX(raceElement);
 race.race(200)
+
+const glitchElement = document.querySelector('#glitch');
+const glitch = new TextAppearFX(glitchElement);
+glitch.glitch(100)
