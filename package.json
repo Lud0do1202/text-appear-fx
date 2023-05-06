@@ -1,0 +1,17 @@
+{
+  "name": "text-appear-fx",
+  "scripts": {
+    "build": "rm -rf dist/lib && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lud0do1202/text-appear-fx.git"
+  },
+  "keywords": [],
+  "author": "Lud0do1202 (TRAINA Ludo) <ludo.traina@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lud0do1202/text-appear-fx/issues"
+  },
+  "homepage": "https://github.com/Lud0do1202/text-appear-fx#readme"
+}
