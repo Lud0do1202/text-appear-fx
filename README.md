@@ -6,7 +6,7 @@ npm i text-appear-fx
 ```
 
 # Usage
-### html
+## Html
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,7 @@ npm i text-appear-fx
 </html>
 ```
 
-### javascript
+## Javascript
 ```javascript
 import { TextAppearFX } from 'text-appear-fx';
 
@@ -69,6 +69,5 @@ glitch.glitch(100)
 
 ```
 
-# Example
-
+## Result
 ![text-appear-fx](https://user-images.githubusercontent.com/110570511/236645227-125b845a-745e-473d-b988-2cc52a9ecd17.gif)

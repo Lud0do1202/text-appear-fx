@@ -17,6 +17,6 @@
     "homepage": "https://github.com/Lud0do1202/text-appear-fx#readme",
     "dependencies": {
         "parcel": "^2.8.3",
-        "text-appear-fx": "^1.0.0"
+        "text-appear-fx": "^1.1.2"
     }
 }

@@ -575,26 +575,48 @@ parcelHelpers.export(exports, "TextAppearFX", ()=>(0, _textAppearFx.TextAppearFX
 var _textAppearFx = require("./animation/text-appear-fx");
 
 },{"./animation/text-appear-fx":"c8dgO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c8dgO":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/**
+ * Apply animation to some texts
+ *
+ * @author Lud0do1202 (Traina Ludo)
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "TextAppearFX", ()=>TextAppearFX);
 var TextAppearFX = /** @class */ function() {
-    function TextAppearFX(element) {
+    /**
+     * Create a new instance of TextAppearFX
+     *
+     * @param element The element containing the text
+     */ function TextAppearFX(element) {
+        // Check args
+        if (!(element instanceof HTMLElement)) throw new Error("TEXT_APPEAR_FX\nelement arg must be an instance of HTMLElement");
         this.element = element;
-        this.text = this.element.innerText;
+        this.text = this.element.textContent;
     }
-    /** TURNAROUND *****************/ TextAppearFX.prototype.turnaround = function(nbTurn, duration, timeout) {
+    /**
+     * Each letter turns on them-self
+     *
+     * @param numberOfTurns The number of turns (int)
+     * @param duration The duration for making the turns (ms)
+     * @param timeout The timeout between letters (ms)
+     */ TextAppearFX.prototype.turnaround = function(numberOfTurns, duration, timeout) {
+        // Check args
+        if (typeof numberOfTurns !== "number") throw new Error("TURNAROUND\nnumberOfTurns arg must be a number");
+        else if (typeof duration !== "number") throw new Error("TURNAROUND\nduration arg must be a number");
+        else if (typeof timeout !== "number") throw new Error("TURNAROUND\ntimeout arg must be a number");
+        // numberOfTurns -> int
+        numberOfTurns = Math.floor(numberOfTurns);
         // Set an height for the element
         this.element.style.height = "1em";
         // Remove the text
-        this.element.innerText = "";
+        this.element.textContent = "";
         var _loop_1 = function(i) {
             // Get the letter
             var letter = this_1.text.charAt(i);
             // Create a <span>
             var letterSpan = document.createElement("span");
             // Set the letter
-            letterSpan.innerText = letter;
+            letterSpan.textContent = letter;
             // Opacity
             letterSpan.style.opacity = "0";
             // NOT A SPACE
@@ -606,7 +628,7 @@ var TextAppearFX = /** @class */ function() {
                 // Set the letter into the span
                 setTimeout(function() {
                     return letterSpan.style.opacity = "1";
-                }, letterTimeout + 50);
+                }, letterTimeout + 150);
                 // Add animation
                 letterSpan.animate([
                     {
@@ -615,7 +637,7 @@ var TextAppearFX = /** @class */ function() {
                     },
                     {
                         scale: 1,
-                        transform: "rotate(".concat(nbTurn * 360, "deg)")
+                        transform: "rotate(".concat(numberOfTurns * 360, "deg)")
                     }
                 ], {
                     duration: duration,
@@ -630,12 +652,20 @@ var TextAppearFX = /** @class */ function() {
         // Transform all letters into a <span>
         for(var i = 0; i < this.text.length; i++)_loop_1(i);
     };
-    /** RACE *****************/ TextAppearFX.prototype.race = function(duration) {
-        var skew = 35;
+    /**
+     * The text come from the left with a fast effect
+     *
+     * @param duration The duration of the animation (ms)
+     */ TextAppearFX.prototype.race = function(duration, side) {
+        // Check args
+        if (typeof duration !== "number") throw new Error("RACE\nduration arg must be a number");
+        else if (side !== "left" && side !== "right") throw new Error("RACE\nside arg must be a 'left' or 'right'");
+        var skew = side === "left" ? 35 : -35;
+        var defaultTranslate = side === "left" ? -100 : 100;
         // Translation
         this.element.animate([
             {
-                transform: "translateX(-100%) skew(".concat(skew, "deg)"),
+                transform: "translateX(".concat(defaultTranslate, "%) skew(").concat(skew, "deg)"),
                 opacity: "0"
             },
             {
@@ -665,8 +695,14 @@ var TextAppearFX = /** @class */ function() {
             delay: duration
         });
     };
-    /** GLITCH **************************/ TextAppearFX.prototype.glitch = function(timeout) {
+    /**
+     * The text appear letter by letter randomly with a glitch effect
+     *
+     * @param timeout The timeout between letters (ms)
+     */ TextAppearFX.prototype.glitch = function(timeout) {
         var _a;
+        // Check args
+        if (typeof timeout !== "number") throw new Error("GLITCH\ntimeout arg must be a number");
         // Set an height for the element
         this.element.style.height = "1em";
         // Remove the text
@@ -691,7 +727,7 @@ var TextAppearFX = /** @class */ function() {
             // Create a <span>
             var letterSpan = document.createElement("span");
             // Set the letter into the span
-            letterSpan.innerText = letter;
+            letterSpan.textContent = letter;
             // Bug animation
             letterSpan.style.opacity = "0";
             setTimeout(function() {

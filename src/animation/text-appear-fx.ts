@@ -24,15 +24,18 @@ export class TextAppearFX {
     /**
      * Each letter turns on them-self
      *
-     * @param numberOfTurns The number of turns
-     * @param duration The duration for making the turns
-     * @param timeout The timeout between letters
+     * @param numberOfTurns The number of turns (int)
+     * @param duration The duration for making the turns (ms)
+     * @param timeout The timeout between letters (ms)
      */
     turnaround(numberOfTurns: number, duration: number, timeout: number): void {
         // Check args
         if (typeof numberOfTurns !== 'number') throw new Error('TURNAROUND\nnumberOfTurns arg must be a number');
         else if (typeof duration !== 'number') throw new Error('TURNAROUND\nduration arg must be a number');
         else if (typeof timeout !== 'number') throw new Error('TURNAROUND\ntimeout arg must be a number');
+
+        // numberOfTurns -> int
+        numberOfTurns = Math.floor(numberOfTurns);
 
         // Set an height for the element
         this.element.style.height = '1em';
@@ -63,7 +66,7 @@ export class TextAppearFX {
                 const letterTimeout = timeout * i;
 
                 // Set the letter into the span
-                setTimeout(() => (letterSpan.style.opacity = '1'), letterTimeout + 50);
+                setTimeout(() => (letterSpan.style.opacity = '1'), letterTimeout + 150);
 
                 // Add animation
                 letterSpan.animate(
@@ -87,7 +90,7 @@ export class TextAppearFX {
     /**
      * The text come from the left with a fast effect
      *
-     * @param duration The duration of the animation
+     * @param duration The duration of the animation (ms)
      */
     race(duration: number, side: 'left' | 'right') {
         // Check args
@@ -124,7 +127,7 @@ export class TextAppearFX {
     /**
      * The text appear letter by letter randomly with a glitch effect
      *
-     * @param timeout The timeout between letters
+     * @param timeout The timeout between letters (ms)
      */
     glitch(timeout: number) {
         // Check args
