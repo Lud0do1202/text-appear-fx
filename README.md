@@ -25,4 +25,4 @@ tafx.glitch(50)
 - race
 - glitch
 
-![Vidéo sans titre ‐ Réalisée avec Clipchamp](https://user-images.githubusercontent.com/110570511/236645131-a939c7a0-5b38-459f-be62-32712a208967.gif)
+![text-appear-fx](https://user-images.githubusercontent.com/110570511/236645227-125b845a-745e-473d-b988-2cc52a9ecd17.gif)
