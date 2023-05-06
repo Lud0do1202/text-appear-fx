@@ -1,4 +1,4 @@
-import { TextAppearFX } from './dist/lib/animation/text-appear-fx.js';
+import { TextAppearFX } from 'text-appear-fx';
 
 const turnaroundElement = document.querySelector('#turnaround');
 const turnaround = new TextAppearFX(turnaroundElement);

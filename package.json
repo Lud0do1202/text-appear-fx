@@ -1,17 +1,22 @@
 {
-  "name": "text-appear-fx",
-  "scripts": {
-    "build": "rm -rf dist/lib && tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lud0do1202/text-appear-fx.git"
-  },
-  "keywords": [],
-  "author": "Lud0do1202 (TRAINA Ludo) <ludo.traina@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Lud0do1202/text-appear-fx/issues"
-  },
-  "homepage": "https://github.com/Lud0do1202/text-appear-fx#readme"
+    "name": "text-appear-fx",
+    "scripts": {
+        "build": "rm -rf dist/lib && tsc",
+        "parcel": "parcel index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lud0do1202/text-appear-fx.git"
+    },
+    "keywords": [],
+    "author": "Lud0do1202 (TRAINA Ludo) <ludo.traina@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Lud0do1202/text-appear-fx/issues"
+    },
+    "homepage": "https://github.com/Lud0do1202/text-appear-fx#readme",
+    "dependencies": {
+        "parcel": "^2.8.3",
+        "text-appear-fx": "^1.0.0"
+    }
 }
